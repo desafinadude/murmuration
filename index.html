@@ -55,7 +55,7 @@ class BirdGeometry extends THREE.BufferGeometry {
 
 		}
 
-		const wingsSpan = 20;
+		const wingsSpan = 0;
 
 		for ( let f = 0; f < BIRDS; f ++ ) {
 
@@ -63,7 +63,7 @@ class BirdGeometry extends THREE.BufferGeometry {
 
 			verts_push(
 				0, - 0, - 20,
-				0, 4, - 20,
+				0, 20, - 20,
 				0, 0, 30
 			);
 
@@ -95,6 +95,7 @@ class BirdGeometry extends THREE.BufferGeometry {
 				~ ~ ( v / 9 ) / BIRDS * 0x999999
 			);
 
+
 			birdColors.array[ v * 3 + 0 ] = c.r;
 			birdColors.array[ v * 3 + 1 ] = c.g;
 			birdColors.array[ v * 3 + 2 ] = c.b;
@@ -102,7 +103,7 @@ class BirdGeometry extends THREE.BufferGeometry {
 			references.array[ v * 2 ] = x;
 			references.array[ v * 2 + 1 ] = y;
 
-			birdVertex.array[ v ] = v % 9;
+			// birdVertex.array[ v ] = v % 9;
 
 		}
 
@@ -160,7 +161,7 @@ function init() {
 
 	const effectController = {
 		separation: 20.0,
-		alignment: 20.0,
+		alignment: 80.0,
 		cohesion: 20.0,
 		freedom: 0.75
 	};
@@ -330,7 +331,6 @@ function animate() {
 	requestAnimationFrame( animate );
 
 	render();
-	// stats.update();
 
 }
 
